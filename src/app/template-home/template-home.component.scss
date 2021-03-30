@@ -1,0 +1,168 @@
+.highlight {
+    color: blue;
+}
+
+input {
+    color: red!important;
+}
+
+table {
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+    margin-top: 20px;
+    padding: 0;
+    table-layout: auto;
+    width: 100%;
+}
+
+input {
+    border: none;
+    border: 1px solid #F8F8F8;
+    background-color: #F8F8F8;
+}
+
+table tr {
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    padding: .35em;
+}
+
+td {
+    max-width: 220px;
+    width: 20px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    padding: 4px;
+}
+
+tbody tr:nth-child(odd) {
+    background: #eee;
+}
+
+td,
+th {
+    border-left: 1px solid gray;
+    border-right: 1px solid gray;
+}
+
+.p-dropdown {
+    border: none;
+    span {
+        color: red!important;
+    }
+}
+
+#dropdown {
+    color: red!important;
+}
+
+.headerTh {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+input {
+    color: red;
+}
+
+input:focus {
+    outline-width: 0;
+}
+
+@media screen and (min-width:0px) and (max-width:1470px) {
+    #qualite {
+        width: 110px!important;
+        max-width: 110px!important;
+    }
+    #nom {
+        width: 119px!important;
+        max-width: 119px!important;
+    }
+    #prenom {
+        width: 119px!important;
+        max-width: 119px!important;
+    }
+    #titre {
+        width: 180px!important;
+        max-width: 180px!important;
+    }
+    #techno {
+        width: 188px!important;
+        max-width: 188px!important;
+    }
+    #exp {
+        width: 95px!important;
+        max-width: 95px!important;
+    }
+    #dispo {
+        width: 95px!important;
+        max-width: 95px!important;
+    }
+    #client {
+        width: 162px!important;
+        max-width: 162px!important;
+    }
+    #observation {
+        width: 188px!important;
+        max-width: 188px!important;
+    }
+    #date {
+        width: 110px!important;
+        max-width: 110px!important;
+    }
+}
+
+@media screen and (min-width: 1470px) and (max-width:2928px) {
+    td {
+        padding-top: 4px!important;
+        padding-bottom: 4px!important;
+    }
+}
+
+@media screen and (min-width: 1470px) and (max-width:1928px) {
+    #qualite {
+        width: 98px!important;
+        max-width: 98px!important;
+    }
+    #nom {
+        width: 174px!important;
+        max-width: 174px!important;
+    }
+    #prenom {
+        width: 174px!important;
+        max-width: 174px!important;
+    }
+    #titre {
+        width: 330px!important;
+        max-width: 330px!important;
+    }
+    #techno {
+        width: 330px!important;
+        max-width: 330px!important;
+    }
+    #exp {
+        width: 85px!important;
+        max-width: 85px!important;
+    }
+    #dispo {
+        width: 85px!important;
+        max-width: 85px!important;
+    }
+    #client {
+        width: 245px!important;
+        max-width: 245px!important;
+    }
+    #observation {
+        width: 300px!important;
+        max-width: 300px!important;
+    }
+    #date {
+        width: 98px!important;
+        max-width: 98px!important;
+    }
+    #titreinput {
+        width: 380px;
+    }
+}

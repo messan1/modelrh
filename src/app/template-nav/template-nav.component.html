@@ -1,0 +1,65 @@
+<div class="infcontainer">
+
+    <ul>
+        <a routerLink="/home">
+            <li class="one" style="margin-top: -0.1px;">
+                <img width="40" src="../../assets/Accueil.png" alt="">
+            </li>
+        </a>
+
+        <a routerLink="/dashboard">
+            <li class="header-text">
+                <img width="40" src="../../assets/Dashboard.png" alt="">
+                <p>Dashboard</p>
+            </li>
+        </a>
+        <a routerLink="/Liste">
+            <li class="header-text">
+                <img width="40" src="../../assets/contact.png" alt="">
+                <p>Liste Consultants</p>
+            </li>
+        </a>
+
+        <a routerLink="/ajoutc">
+            <li class="header-text">
+                <img width="40" src="../../assets/AjouterConsultants.png" alt="">
+                <p id="Ajout">Ajout Consultants</p>
+            </li>
+        </a>
+
+        <li class="header-text">
+            <img width="40" src="../../assets/Loupe.png" alt="">
+            <div>
+                <p>Recherche</p>
+                <select (click)="changeRoute('')" (focus)="changeRoute('')" name="" id="">
+            <option value="null"></option>
+            <option (click)="openRoute('rechmc')" value="rechmc">par Mots-clés</option>
+            <option (click)="openRoute('rechtags')" value="rechtags">par Tags</option>
+          </select>
+            </div>
+        </li>
+        <a routerLink="/rappels">
+            <li class="header-text">
+                <img width="40" src="../../assets/rappel.png" alt="">
+                <p>Rappels</p>
+            </li>
+
+        </a>
+        <a>
+            <li class="header-text">
+                <img width="35" src="../../assets/paramétrage.png" alt="">
+                <div>
+                    <p id="Paramètres">Paramétrage & Admin</p>
+
+                    <select [disabled]="params" (click)="changeRoute('')" (focus)="changeRoute('')" name="" id="">
+                    <option value="null"></option>
+                    <option (click)="openRoute('user')" value="users">Utilisateurs</option>
+                    <option (click)="openRoute('listeD')" value="listeD">Clients</option>
+                    <option (click)="openRoute('tags')" value="tags">Tags</option>
+                  </select>
+                </div>
+            </li>
+        </a>
+
+    </ul>
+</div>

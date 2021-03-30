@@ -1,1 +1,74 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+/* You can add global styles to this file, and also import other style files */
+
+@import '~bootstrap/scss/bootstrap';
+@import '~perfect-scrollbar/css/perfect-scrollbar.css';
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+body {
+    font-size: .9rem;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.page-wrapper.toggled .sidebar {
+    left: -300px;
+}
+
+// angular perfect scrollbar style
+.sidebar .ps.ps--scrolling-y>.ps__rail-y,
+.sidebar>.ps.ps--scrolling-x>.ps__rail-x,
+.ps .ps__rail-x:hover,
+.ps .ps__rail-y:hover,
+.ps .ps__rail-x:focus,
+.ps .ps__rail-y:focus,
+.ps .ps__rail-x.ps--clicking,
+.ps .ps__rail-y.ps--clicking {
+    background-color: transparent !important;
+}
+
+.sidebar .ps.ps--active-y>.ps__rail-y:hover,
+.sidebar>.ps.ps--active-y>.ps__rail-y.ps--clicking {
+    width: 10px !important;
+}
+
+.ps__thumb-y {
+    background-color: #fff !important;
+    width: 6px!important;
+    border-radius: 0px!important;
+    opacity: .5;
+}
+
+.modal-backdrop.show {
+    opacity: 0 !important;
+}
+
+.modal-content {
+    background-color: unset !important;
+    border: unset;
+}
+
+
+/* Importing Bootstrap SCSS file. */
+
+@import '~bootstrap/scss/bootstrap';
+table tr:hover {
+    background-color: #DDEEFF!important;
+}
+
+tr:nth-child(2n) {
+    background: white;
+    text-align: left;
+    margin-top: 1vw;
+}
+
+tr:nth-child(2n+1) {
+    background: #f5f5f5;
+    text-align: left;
+    margin-top: 1vw;
+}

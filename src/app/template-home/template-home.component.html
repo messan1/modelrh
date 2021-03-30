@@ -1,0 +1,192 @@
+<div style="display: flex;background-color: #EFEEEE;width: 100%; justify-content: center;padding: 14px;">
+    <p style="font-size: 20px; font-weight: bolder;color: red;margin: 0;text-align: center;">Consultants trouvés : <span style="color: #ff0000">{{totalSize}}</span>
+
+    </p>
+    <button *ngIf="showfilter" style="border: none;background-color: transparent;margin-top: -18px;margin-left: 10px;" (click)="resetFilter()">
+    <img width="30" src="../../assets/filter.png" alt="">
+  </button>
+
+</div>
+
+<table id="element" style="position:relative;">
+
+    <thead>
+        <tr>
+            <th scope="col" [ngClass]="{ 'highlight': isQualiteFilter, 'default': !isQualiteFilter  }">
+                <div class="headerTh" id="qualite">
+                    <div class="p-float-label">
+                        <p-dropdown [(ngModel)]="qualitecv" style="color: red;font-size: 14px;" (onChange)='SearchTriFiltrage()' inputId="dropdown" [autoDisplayFirst]="false" [options]="Quali" optionLabel="name"></p-dropdown>
+                        <label for="input" class="control-label">Qualité</label>
+                    </div>
+
+                    <div (click)='sort("qualitecv")' class="sortbtn">
+                        <img *ngIf="!qualitedesc" width="25" src="../../assets/2.png" id='up' alt="">
+                        <img *ngIf='qualitedesc' id='desc' width="25" src="../../assets/1.png" id='up' alt="">
+                    </div>
+                </div>
+            </th>
+            <th scope="col" [ngClass]="{ 'highlight': isNomFilter, 'default': !isNomFilter  }">
+                <div class="headerTh" id="nom">
+                    <form autocomplete="off" class="p-float-label">
+                        <input autocomplete="off" type="text" id="input" pInputText class="form-control" (keyup.enter)="SearchTriFiltrage()" placeholder="" [formControl]="nameFilter" style="color: black;">
+                        <label for="input" class="control-label">Nom</label>
+                    </form>
+                    <div (click)='sort("nom")' class="sortbtn">
+                        <img *ngIf="!nomdesc" width="25" src="../../assets/2.png" id='up' alt="">
+                        <img *ngIf='nomdesc' id='desc' width="25" src="../../assets/1.png" id='up' alt="">
+                    </div>
+                </div>
+            </th>
+            <th scope="col" [ngClass]="{ 'highlight': isPrenomFilter, 'default': !isPrenomFilter  }">
+                <div class="headerTh" id="prenom">
+                    <form autocomplete="off" class="p-float-label">
+                        <input autocomplete="off" type="text" id="input" pInputText class="form-control" (keyup.enter)="SearchTriFiltrage()" placeholder="" [formControl]="prenomFilter" style="color: black;">
+                        <label for="input" class="control-label">Prénoms</label>
+                    </form>
+                    <div (click)='sort("prenom")' class="sortbtn">
+                        <img *ngIf="!prenomdesc" width="25" src="../../assets/2.png" id='up' alt="">
+                        <img *ngIf='prenomdesc' id='desc' width="25" src="../../assets/1.png" id='up' alt="">
+                    </div>
+                </div>
+            </th>
+            <th scope="col" [ngClass]="{ 'highlight': isTitreFilter, 'default': !isTitreFilter  }">
+                <div class="headerTh" id="titre">
+                    <form autocomplete="off" class="p-float-label">
+                        <input autocomplete="off" type="text" id="titreinput" pInputText class="form-control" (keyup.enter)="SearchTriFiltrage()" placeholder="" [formControl]="titreFilter" style="color: black;">
+                        <label for="input" class="control-label">Titre</label>
+                    </form>
+                    <div (click)='sort("titre")' class="sortbtn">
+                        <img *ngIf="!titredesc" width="25" src="../../assets/2.png" id='up' alt="">
+                        <img *ngIf='titredesc' id='desc' width="25" src="../../assets/1.png" id='up' alt="">
+                    </div>
+                </div>
+            </th>
+            <th scope="col" [ngClass]="{ 'highlight': isTechFilter, 'default': !isTechFilter  }">
+                <div class="headerTh" id="techno">
+                    <form autocomplete="off" class="p-float-label">
+                        <input autocomplete="off" type="text" id="titreinput" pInputText (keyup.enter)="SearchTriFiltrage()" placeholder="" [formControl]="techFilter" style="color: black;" class="form-control">
+                        <label for="input" class="control-label">Technologie</label>
+                    </form>
+                    <div (click)='sort("tech")' class="sortbtn">
+                        <img *ngIf="!techdesc" width="25" src="../../assets/2.png" id='up' alt="">
+                        <img *ngIf='techdesc' id='desc' width="25" src="../../assets/1.png" id='up' alt="">
+                    </div>
+                </div>
+            </th>
+            <th scope="col" [ngClass]="{ 'highlight': isExpFilter, 'default': !isExpFilter  }">
+                <div class="headerTh" id="exp">
+                    <div class="p-float-label">
+                        <p-dropdown autoWidth="false" [style]="{'width':'80px'}" [(ngModel)]="exp" (onChange)='SearchTriFiltrage()' inputId="dropdown" [autoDisplayFirst]="false" [options]="dispos" optionLabel="name"></p-dropdown>
+
+                        <label for="input" class="control-label">Exp</label>
+                    </div>
+                    <div (click)='sort("exp")' class="sortbtn">
+                        <img *ngIf="!expdesc" width="25" src="../../assets/2.png" id='up' alt="">
+                        <img *ngIf='expdesc' id='desc' width="25" src="../../assets/1.png" id='up' alt="">
+                    </div>
+                </div>
+            </th>
+            <th scope="col" [ngClass]="{ 'highlight': isDispoFilter, 'default': !isDispoFilter  }">
+                <div class="headerTh" id="dispo">
+                    <div class="p-float-label">
+                        <p-dropdown autoWidth="false" [style]="{'width':'82px'}" [(ngModel)]="disponibilite" (onChange)='SearchTriFiltrage()' inputId="dropdown" [autoDisplayFirst]="false" [options]="Dispo" optionLabel="name"></p-dropdown>
+
+                        <label for="input" class="control-label">Dispo</label>
+                    </div>
+                    <div (click)='sort("dispo")' class="sortbtn">
+                        <img *ngIf="!dispodesc" width="25" src="../../assets/2.png" id='up' alt="">
+                        <img *ngIf='dispodesc' id='desc' width="25" src="../../assets/1.png" id='up' alt="">
+                    </div>
+                </div>
+            </th>
+
+            <th scope="col" [ngClass]="{ 'highlight': isClientFilter, 'default': !isClientFilter  }">
+                <div class="headerTh" id="client">
+                    <form autocomplete="off" class="p-float-label">
+                        <input autocomplete="off" type="text" id="input" pInputText (keyup.enter)="SearchTriFiltrage()" placeholder="" [formControl]="clientFilter" style="color: black;" class="form-control">
+                        <label for="input" class="control-label">Client</label>
+                    </form>
+                    <div (click)='sort("client")' class="sortbtn">
+                        <img *ngIf="!clientdesc" width="25" src="../../assets/2.png" id='up' alt="">
+                        <img *ngIf='clientdesc' id='desc' width="25" src="../../assets/1.png" id='up' alt="">
+                    </div>
+                </div>
+            </th>
+            <th scope="col" [ngClass]="{ 'highlight': isObsFilter, 'default': !isObsFilter  }">
+                <div class="headerTh" id="observation">
+                    <form autocomplete="off" class="p-float-label">
+                        <input autocomplete="off" type="text" id="input" pInputText class="form-control" (keyup.enter)="SearchTriFiltrage()" placeholder="" [formControl]="observationFilter" style="color: black;">
+                        <label for="input" class="control-label">Observation</label>
+                    </form>
+                    <div (click)='sort("obs")' class="sortbtn">
+                        <img *ngIf="!obsdesc" width="25" src="../../assets/2.png" id='up' alt="">
+                        <img *ngIf='obsdesc' id='desc' width="25" src="../../assets/1.png" id='up' alt="">
+                    </div>
+                </div>
+            </th>
+
+            <th scope="col" [ngClass]="{ 'highlight': idDateFilter, 'default': !idDateFilter  }">
+                <div class="headerTh" id="date">
+                    <form autocomplete="off" class="p-float-label">
+                        <input autocomplete="off" type="text" pInputText id="input" (keyup.enter)="SearchTriFiltrage()" placeholder="" [formControl]="date_derniere_majFilter" style="  font-size: 15px;  width: 100px;" class="form-control">
+                        <label for="input" class="control-label">Date Modif</label>
+                    </form>
+                    <div (click)='sort("modif")' class="sortbtn">
+                        <img *ngIf="!modifdesc" width="25" src="../../assets/2.png" id='up' alt="">
+                        <img *ngIf='modifdesc' id='desc' width="25" src="../../assets/1.png" id='up' alt="">
+                    </div>
+                </div>
+            </th>
+        </tr>
+    </thead>
+    <tbody style="position: relative;">
+        <tr *ngFor="let item of consultants; let i = index">
+            <td (click)="Select(item)" style="text-align: center;"><img src="./assets/{{item.qualitecv.libelle}}.png"></td>
+
+            <td (click)="Select(item)" [ngClass]="{ 'highlight': isNomFilter, 'default': !isNomFilter  }" (mouseleave)="close($event)" (mouseenter)="setdata(item.nom,$event)" [id]="'nom'+i">
+
+                {{item.nom}}
+
+            </td>
+            <td (click)="Select(item)" [ngClass]="{ 'highlight': isPrenomFilter, 'default': !isPrenomFilter  }" (mouseleave)="close($event)" (mouseenter)="setdata(item.nom,$event)">
+                {{renderPrenom(item.prenom)}}
+            </td>
+
+            <td (click)="Select(item)" [ngClass]="{ 'highlight': isTitreFilter, 'default': !isTitreFilter  }" (mouseleave)="close($event)" (mouseenter)="setdata(item.titre,$event)" id="prenom" [id]="'titre'+i">{{item.titre}}</td>
+            <td (click)="Select(item)" [ngClass]="{ 'highlight': isTechFilter, 'default': !isTechFilter  }" (mouseleave)="close($event)" (mouseenter)="setdata(item.tech,$event)" [id]="'tech'+i">{{item.tech}}</td>
+            <td (click)="Select(item)" [ngClass]="{ 'highlight': isExpFilter, 'default': !isExpFilter  }" (mouseleave)="close($event)" (mouseenter)="setdata(item.tel,$event)" style="text-align: center;" class="telpx">{{item.exp}}</td>
+
+            <td (click)="Select(item)" [ngClass]="{ 'highlight': isDispoFilter, 'default': !isDispoFilter  }" (mouseleave)="close($event)" (mouseenter)="setdata('',$event)" style="text-align: center;" class="technopx">{{renderDispo(item.codedispo)}}
+            </td>
+            <td (click)="Select(item)" [ngClass]="{ 'highlight': isClientFilter, 'default': !isClientFilter  }" (mouseleave)="close($event)" (mouseenter)="setdata(item.client,$event)" [id]="'client'+i" class="clientpx">{{item.listClient}}</td>
+            <td (click)="Select(item)" [ngClass]="{ 'highlight': isObsFilter, 'default': !isObsFilter  }" (mouseleave)="close($event)" (mouseenter)="setdata(item.derniereObs,$event)" [id]="'derniereObs'+i" class="cppx"> {{item.derniereObs}}</td>
+            <td (click)="Select(item)" [ngClass]="{ 'highlight': idDateFilter, 'default': !idDateFilter  }" (mouseleave)="close($event)" (mouseenter)="setdata(item.prenom,$event)" style="text-align: center; " class="datepx"> {{item.dateDerniereMaj}}</td>
+        </tr>
+
+    </tbody>
+</table>
+
+<div class="has-text-centered " style="margin: auto;display: flex;justify-content: center;margin-top: 1vw;">
+
+    <div style="flex-grow: 1;display: flex;justify-content: center;">
+        <img *ngIf="getpreviousMove()" (click)="FirstPage()" style="cursor: pointer; margin-right: 1vw;" width="25" src="../../assets/fisrtPageActive.png" alt="">
+        <img *ngIf="getPrevious()" (click)="previousPage()" style="cursor: pointer; margin-right: 3vw" width="20" src="../../assets/previousPageActive.png" alt="">
+
+        <img *ngIf="!getpreviousMove()" style="margin-right: 1vw" width="25" src="../../assets/firstPage.png" alt="">
+        <img *ngIf="!getPrevious()" style="margin-right: 3vw" width="20" src="../../assets/previousPage.png" alt="">
+
+        <input autocomplete="off"  [(ngModel)]="currentPage" type="text" style="width: 90px;color: red;font-weight: bold;height: 25px;"> / {{totalPage+1}}
+        <img *ngIf="getNext()" (click)="NexPage()" style="cursor: pointer;margin-left: 3vw; " width="20" src="../../assets/nextPageActive.png" alt="">
+        <img *ngIf="getlastpage()" (click)="LastPage()" style="cursor: pointer;margin-left: 1vw;" width="25" src="../../assets/lastPageActive.png" alt="">
+
+        <img *ngIf="!getNext()" style="margin-left: 3vw;" width="20" src="../../assets/nextPage.png" alt="">
+        <img *ngIf="!getlastpage()" style="margin-left: 1vw;" width="25" src="../../assets/lastPage.png" alt="">
+    </div>
+    <div style="display: flex;justify-content: center;align-items: center;">
+        <p style="margin: 0;margin-right: 5px;">Par Page:</p>
+        <select  name="" id="">
+            <option *ngFor="let item of pageSizeElement" [value]="item" >{{item}}</option>
+       
+          </select>
+    </div>
+</div>
