@@ -209,6 +209,7 @@ export class TemplateHomeComponent implements OnInit {
     let { width, height } = window.screen
     this.width = width;
     this.height = height;
+  
 
     //changement du nom d'élément par page ainsi que de la liste des éléments par page 
     //en fonction de la taille de l'écran
@@ -828,6 +829,8 @@ export class TemplateHomeComponent implements OnInit {
     } else {
       this.idDateFilter = true;
     }
+
+
   }
 
 

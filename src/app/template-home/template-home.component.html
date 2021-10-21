@@ -28,7 +28,7 @@
             <th scope="col" [ngClass]="{ 'highlight': isNomFilter, 'default': !isNomFilter  }">
                 <div class="headerTh" id="nom">
                     <form autocomplete="off" class="p-float-label">
-                        <input autocomplete="off" type="text" id="input" pInputText class="form-control" (keyup.enter)="SearchTriFiltrage()" placeholder="" [formControl]="nameFilter" style="color: black;">
+                        <input autocomplete="off" type="text" id="input" pInputText class="form-control" (keypress)="SearchTriFiltrage()" placeholder="" [formControl]="nameFilter" style="color: black;">
                         <label for="input" class="control-label">Nom</label>
                     </form>
                     <div (click)='sort("nom")' class="sortbtn">

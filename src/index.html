@@ -7,17 +7,21 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="icon" type="image/x-icon" href="./assets/RH.png">
+  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
 
-  <script>
-    window.FontAwesomeConfig = {
-    searchPseudoElements: true
-}
-  </script>
+
 </head>
 <!-- style="zoom: 75%;" -->
 <body style="zoom: 73%;" id='body' >
+  <div>John Resig</div>
+<div>George Martin</div>
+<div>Malcom John Sinclair</div>
+<div>J. Ohn</div>
   <app-root></app-root>
+  <script>
+    $( "div:contains('John')" ).css( "color", "red" );
+    </script>
 </body>
 </html>
